@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Message Board</title>
+</head>
+<body>
+<h1>Messages:</h1>
+<div>
+    <form method="post" th:action="@{/board/messages/add}">
+        <label for="message">Message</label>
+        <input type="text" name="message" id="message" placeholder="Write your message...">
+        <button type="submit">Post message</button>
+    </form>
+</div>
+<p th:if="${messages == null or messages.isEmpty()}">There are no messages :(</p>
+<ul th:each="mess : ${messages}">
+    <li>
+        <p th:text="${mess}"></p>
+    </li>
+</ul>
+
+
+
+</body>
+</html>
